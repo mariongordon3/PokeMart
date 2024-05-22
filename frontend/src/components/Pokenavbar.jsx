@@ -6,21 +6,22 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
-function Pokenavbar() {
-
+function Pokenavbar(props) {
   // set state for our input value
-  const [inputValue, setInputValue] = useState('');
+  const {inputValue} = props
+  const {setInputValue} = props
 
   // handler for the submission of the search
   function handleSubmit(event) {
     event.preventDefault(); // prevent the form from submitting
-    console.log('Input value on submit: ', inputValue);
+    // console.log('Input value on submit: ', inputValue);
     // function to fetch items based off of our inputValue
     const fetchItems = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/supplies/name/:${inputValue}`);
+        const response = await fetch(`http://localhost:5000/supplies/name/${inputValue}`);
         if (!response.ok) {
           throw new Error('Data could not be fetched!');
         }
@@ -32,6 +33,8 @@ function Pokenavbar() {
       }
     };
     fetchItems();
+    // const navigate = useNavigate();
+    // navigate("/searchresult");
   }
 
   return (
