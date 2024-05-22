@@ -4,7 +4,12 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 function Pokeitem(props) {
-const {itemName,popularity,durability,price,quantity,region} = props
+const {itemName,popularity,durability,price,quantity,region,supplies,setCartItems,CartItems} = props
+function addItem(itemName){
+    
+    const addedSupply=supplies.filter((item)=>{return item.itemName==itemName})
+    setCartItems([...CartItems,addedSupply])
+}
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
@@ -21,7 +26,7 @@ const {itemName,popularity,durability,price,quantity,region} = props
             <ListGroup.Item>Quantity: {quantity}</ListGroup.Item>
             <ListGroup.Item>Region: {region}</ListGroup.Item>
         </ListGroup>
-        <Button variant="primary">Add to Cart</Button>
+        <Button onClick={()=>{addItem(itemName)}} variant="primary">Add to Cart</Button>
       </Card.Body>
     </Card>
   );

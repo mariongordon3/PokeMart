@@ -12,6 +12,7 @@ import {
 
 function App() {
   const[supplies,setSupplies] = useState([])
+  const[cartItems,setCartItems] = useState([])
   useEffect(() => {
     const fetchData = async () => {
         try {
@@ -29,13 +30,14 @@ function App() {
 
     fetchData();
 }, []);
+
   return (
     <>
     <Router>
       <Pokenavbar />
       <Routes>
-        <Route exact path="/" element={<Home supplies={supplies} />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route exact path="/" element={<Home supplies={supplies} setCartItems={setCartItems} cartItems={cartItems} />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
       </Routes>
     </Router>
       
