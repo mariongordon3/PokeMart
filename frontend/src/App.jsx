@@ -20,7 +20,7 @@ function App() {
                 throw new Error('Data could not be fetched!');
             }
             const json_response = await response.json();
-            console.log(json_response)
+      
             setSupplies(json_response); // assign JSON response to the data variable.
         } catch (error) {
             console.error('Error fetching supplies', error);
