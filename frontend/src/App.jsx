@@ -21,7 +21,7 @@ function App() {
             }
             const json_response = await response.json();
             console.log(json_response)
-            setData(json_response); // assign JSON response to the data variable.
+            setSupplies(json_response); // assign JSON response to the data variable.
         } catch (error) {
             console.error('Error fetching supplies', error);
         }
