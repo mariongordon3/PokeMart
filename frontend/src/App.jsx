@@ -1,9 +1,17 @@
 import { useState,useEffect } from 'react'
 import Home from './components/Home'
-import './App.css'
+import Pokenavbar from './components/Pokenavbar'
+import Cart from './components/Cart'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
+
 
 function App() {
-  const[data,setData] = useState([])
+  const[supplies,setSupplies] = useState([])
   useEffect(() => {
     const fetchData = async () => {
         try {
@@ -23,7 +31,14 @@ function App() {
 }, []);
   return (
     <>
-      <Home />
+    <Router>
+      <Pokenavbar />
+      <Routes>
+        <Route exact path="/" element={<Home supplies={supplies} />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </Router>
+      
     </>
   )
 }

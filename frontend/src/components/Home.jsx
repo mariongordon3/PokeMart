@@ -1,9 +1,10 @@
 import React from "react"
-export default function Home(){
-    
+import Pokeitem from "./Card"
+export default function Home(props){
+    const {supplies}=props
     return(
         <>
-            <h1>Home</h1>
+            <Pokeitem />
         </>
     )
 }
