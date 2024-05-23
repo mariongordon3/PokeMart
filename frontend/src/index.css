@@ -5,4 +5,13 @@
 .me-auto{
   display: flex;
   justify-content: space-between;
+  width:20vw;
+  
+}
+.me-auto a{
+  color:#ffcb05;
+    font-size:30px;
+    /* text-shadow: 4px 4px 0px blue; */
+    -webkit-text-stroke: 2px#3a5ba7;
+    /* rotate: -15deg; */
 }

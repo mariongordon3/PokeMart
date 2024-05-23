@@ -54,10 +54,10 @@ function Pokenavbar(props) {
           />
           PokeMart
         </Navbar.Brand>
-        <Nav className="navLinks">
+        <div className="me-auto">
             <Link to='/'>Home</Link>
             <Link to='/cart'>Cart</Link> 
-        </Nav>
+        </div>
         <Form inline="true" onSubmit={handleSubmit}>
           <Row>
             <Col xs="auto">
@@ -68,9 +68,6 @@ function Pokenavbar(props) {
                 value={inputValue}
                 onChange={(event) => setInputValue(event.target.value)}
               />
-            </Col>
-            <Col xs="auto">
-              <Button type="submit">Submit</Button>
             </Col>
           </Row>
         </Form>

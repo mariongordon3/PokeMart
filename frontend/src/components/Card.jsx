@@ -8,6 +8,7 @@ function Pokeitem({ itemName, popularity, durability, price, quantity, region, s
     const addedSupply = supplies.find((item) => item.itemName === itemName);
     console.log(addedSupply)
     setCartItems([...cartItems, addedSupply]);
+    alert(`${addedSupply.itemName} has been added to cart`)
     
   }
 
