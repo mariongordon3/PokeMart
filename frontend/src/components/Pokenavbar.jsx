@@ -54,8 +54,8 @@ function Pokenavbar(props) {
           />
           PokeMart
         </Navbar.Brand>
-        <Nav className="me-auto">
-            <Link to='/'>Home</Link>  
+        <Nav className="navLinks">
+            <Link to='/'>Home</Link>
             <Link to='/cart'>Cart</Link> 
         </Nav>
         <Form inline="true" onSubmit={handleSubmit}>
