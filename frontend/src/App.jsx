@@ -5,9 +5,9 @@ import Cart from './components/Cart'
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
-  Link
+  Routes
 } from "react-router-dom";
+import { CartProvider } from './components/CartContext';
 
 
 function App() {
@@ -32,17 +32,20 @@ function App() {
 }, []);
 
   return (
-    <>
-    <Router>
-      <Pokenavbar />
-      <Routes>
-        <Route exact path="/" element={<Home supplies={supplies} setCartItems={setCartItems} cartItems={cartItems} />} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
-      </Routes>
-    </Router>
-      
-    </>
-  )
+    <CartProvider>
+      <Router>
+        <Pokenavbar />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<Home supplies={supplies} />}
+          />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Router>
+    </CartProvider>
+  );
 }
 
 export default App
