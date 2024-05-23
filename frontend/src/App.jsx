@@ -12,6 +12,7 @@ import {
 
 function App() {
   const[supplies,setSupplies] = useState([])
+  const[cartItems,setCartItems] = useState([])
   const[displayedSupplies,setDisplayedSupplies] = useState([])
   const [inputValue, setInputValue] = useState('');
   useEffect(() => {
@@ -20,7 +21,7 @@ function App() {
     } else
     setDisplayedSupplies(supplies.filter(supply=>supply.itemName === inputValue))
   },[inputValue])
-
+  
   useEffect(() => {
     const fetchData = async () => {
         try {
@@ -39,14 +40,14 @@ function App() {
 
     fetchData();
 }, []);
-console.log("supplies", supplies)
+
   return (
     <>
     <Router>
       <Pokenavbar inputValue={inputValue} setInputValue={setInputValue}/>
       <Routes>
-        <Route exact path="/" element={<Home supplies={displayedSupplies} />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route exact path="/" element={<Home supplies={displayedSupplies} setCartItems={setCartItems} cartItems={cartItems} />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
       </Routes>
     </Router>
       
