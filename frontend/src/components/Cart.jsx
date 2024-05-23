@@ -1,10 +1,12 @@
 import React from 'react';
-import Pokeitem from './Card';
+import CartCard from './CartCard';
 import { useCart } from './CartContext';
 import Button from 'react-bootstrap/Button';
+import { useState,useEffect } from 'react'
 
 export default function Cart() {
   const { cartItems } = useCart();
+  const[totalCost,setTotalCost] = useState(0)
   async function update() {
     // add a filter/map to perform on all cart items
     try {
@@ -24,20 +26,23 @@ export default function Cart() {
   }
   
   return (
-    <div className="cardContainer">
-      {cartItems.map(item => (
-        <Pokeitem
-          key={item._id}
-          itemName={item.itemName}
-          popularity={item.popularity}
-          durability={item.durability}
-          price={item.price}
-          region={item.region}
-          quantity={item.quantity}
-        />
-      ))}
-      <Button>Order Now  </Button>
-    </div>
+    <>  
+        <div className="cardContainer">
+        {cartItems.map(item => (
+            <CartCard
+            key={item._id}
+            itemName={item.itemName}
+            popularity={item.popularity}
+            durability={item.durability}
+            price={item.price}
+            region={item.region}
+            quantity={item.quantity}
+            />
+        ))}
+        </div>
+        <Button>Order Now  </Button>
+    </>
+    
   );
 }
 
