@@ -5,8 +5,12 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,Link
+} from "react-router-dom";
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 
 function Pokenavbar(props) {
@@ -51,8 +55,8 @@ function Pokenavbar(props) {
           PokeMart
         </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/cart">Cart</Nav.Link>
+            <Link to='/'>Home</Link>  
+            <Link to='/cart'>Cart</Link> 
         </Nav>
         <Form inline="true" onSubmit={handleSubmit}>
           <Row>
