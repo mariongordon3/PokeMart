@@ -82,12 +82,13 @@ app.get('/supplies/id/:id', async (req, res) => {
     }
 })
 
-app.post('/supplies', async (req, res) => {
+app.post('/orders', async (req, res) => {
+    console.log('post route')
     try {
         const item = req.body;
         const client = await MongoClient.connect(url);
         const db = client.db(dbName);
-        const collection = db.collection(collectionName);
+        const collection = db.collection('orders');
         const result = await collection.insertOne(item);
         res.status(201).send(`{"_id":"${result.insertedId}"}`);
     } catch (err) {

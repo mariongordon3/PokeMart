@@ -7,8 +7,15 @@ import { useState,useEffect } from 'react'
 function CartCard({ itemName, popularity, durability, price, quantity, region, supplies, setCartItems, cartItems }) {
     const[orderQuantity,setOrderQuantity] = useState(0)
     function addQuantity(event) {
-    console.log(orderQuantity)
-    
+        console.log(cartItems)
+        let totalQuantity = quantity-orderQuantity
+        if(totalQuantity>0){
+            console.log(totalQuantity)
+        }
+        else{
+            console.log('sorry we dont have enough')
+        }
+     
   }
 
   return (
@@ -30,3 +37,22 @@ function CartCard({ itemName, popularity, durability, price, quantity, region, s
 }
 
 export default CartCard;
+
+
+// async function update() {
+//     // add a filter/map to perform on all cart items
+//     try {
+//     quantity-=1
+//       const response = await fetch(`http://localhost:5000/supplies/update/${addedSupply._id}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({quantity}),
+//       });
+//       const result = await response.json();
+//       console.log("Success:", result);
+//     } catch (error) {
+//       console.error("Error:", error);
+//     }
+//   }
