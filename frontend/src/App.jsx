@@ -43,6 +43,7 @@ function App() {
 
   return (
     <>
+  <CartProvider>
     <Router>
       <Pokenavbar inputValue={inputValue} setInputValue={setInputValue}/>
       <Routes>
@@ -50,6 +51,8 @@ function App() {
         <Route path="/cart" element={<Cart cartItems={cartItems} />} />
       </Routes>
     </Router>
+  </CartProvider>
+    
       
     </>
   )
