@@ -44,6 +44,18 @@ export default function Cart() {
             />
         ))}
         </div>
+        <div>
+            <h5>Total Price: 0</h5>
+            <form>
+                <label> card number
+                   <input type="text" /> 
+                </label>   
+                <label> shipping address
+                   <input type="text" /> 
+                </label>
+
+            </form>
+        </div>
         <Button onClick={()=>{Order()}}>Order Now  </Button>
     </>
     
