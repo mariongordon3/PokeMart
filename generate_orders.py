@@ -29,7 +29,7 @@ def create_order(items, order_id):
     return order
 
 # Generate sample items
-items = []
+cartItems = []
 for item_name in item_names:
     item = {
         "_id": {
@@ -42,10 +42,10 @@ for item_name in item_names:
         "quantity": random.choice(range(10, 50)),
         "region": random.choice(regions)
     }
-    items.append(item)
+    cartItems.append(item)
 
 # Generate 1000 orders
-orders = [create_order(items, generate_object_id()) for _ in range(1000)]
+orders = [create_order(cartItems, generate_object_id()) for _ in range(1000)]
 
 # Save orders to a JSON file
 with open('orders.json', 'w') as file:
