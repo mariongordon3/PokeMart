@@ -54,7 +54,7 @@ function Pokenavbar(props) {
           />
           PokeMart
         </Navbar.Brand>
-        <Nav className="navLinks">
+        <Nav className="me-auto">
             <Link to='/'>Home</Link>
             <Link to='/cart'>Cart</Link> 
         </Nav>
@@ -68,9 +68,6 @@ function Pokenavbar(props) {
                 value={inputValue}
                 onChange={(event) => setInputValue(event.target.value)}
               />
-            </Col>
-            <Col xs="auto">
-              <Button type="submit">Submit</Button>
             </Col>
           </Row>
         </Form>

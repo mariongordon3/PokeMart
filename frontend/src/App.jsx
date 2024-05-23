@@ -48,7 +48,7 @@ function App() {
       <Pokenavbar inputValue={inputValue} setInputValue={setInputValue}/>
       <Routes>
         <Route exact path="/" element={<Home supplies={displayedSupplies} setCartItems={setCartItems} cartItems={cartItems} />} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} supplies={supplies} />} />
       </Routes>
     </Router>
   </CartProvider>

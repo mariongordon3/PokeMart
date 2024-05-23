@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { useState,useEffect } from 'react'
 
-function CartCard({ itemName, popularity, durability, price, quantity, region, supplies, setCartItems, cartItems }) {
+function CartCard({ itemName, popularity, durability, price, quantity, region, supplies, setCartItems, cartItems,setTotalCost, totalCost }) {
     const[orderQuantity,setOrderQuantity] = useState(0)
     function addQuantity(event) {
         console.log(cartItems)
@@ -15,6 +15,7 @@ function CartCard({ itemName, popularity, durability, price, quantity, region, s
         else{
             console.log('sorry we dont have enough')
         }
+        setTotalCost(totalCost+=(orderQuantity*price))
      
   }
 
