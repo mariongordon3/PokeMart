@@ -7,7 +7,7 @@ import { useState,useEffect } from 'react'
 export default function Cart(props) {
   const {supplies} = props
   const { cartItems,setCartItems } = useCart();
-  const[totalCost,setTotalCost] = useState(110)
+  const[totalCost,setTotalCost] = useState(0)
   const[ordered,setOrdered] =useState(false)
   const[randomNumber,setRandomNumber] = useState(0)
     async function Order(){
@@ -35,6 +35,7 @@ export default function Cart(props) {
   
   return (
     <>  
+        <h1>Please complete your order</h1>
         <div className="cardContainer">
         {cartItems.map(item => (
             <CartCard
@@ -46,6 +47,8 @@ export default function Cart(props) {
             region={item.region}
             quantity={item.quantity}
             cartItems={cartItems}
+            totalCost={totalCost}
+            setTotalCost={setTotalCost}
             />
         ))}
         {

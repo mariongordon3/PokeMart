@@ -54,10 +54,10 @@ function Pokenavbar(props) {
           />
           PokeMart
         </Navbar.Brand>
-        <Nav className="me-auto">
+        <div className="me-auto">
             <Link to='/'>Home</Link>
             <Link to='/cart'>Cart</Link> 
-        </Nav>
+        </div>
         <Form inline="true" onSubmit={handleSubmit}>
           <Row>
             <Col xs="auto">

@@ -9,14 +9,15 @@ function CartCard({ itemName, popularity, durability, price, quantity, region, s
     function addQuantity(event) {
         console.log(cartItems)
         let totalQuantity = quantity-orderQuantity
+        let currenCost = orderQuantity*price
         if(totalQuantity>0){
             console.log(totalQuantity)
         }
         else{
             console.log('sorry we dont have enough')
         }
-        setTotalCost(totalCost+=(orderQuantity*price))
-     
+        setTotalCost(totalCost+currenCost)
+        console.log(totalCost)
   }
 
   return (
