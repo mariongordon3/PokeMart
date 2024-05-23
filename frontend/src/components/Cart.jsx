@@ -5,25 +5,28 @@ import Button from 'react-bootstrap/Button';
 import { useState,useEffect } from 'react'
 
 export default function Cart() {
-  const { cartItems } = useCart();
+  const { cartItems,setCartItems } = useCart();
   const[totalCost,setTotalCost] = useState(0)
-  async function update() {
-    // add a filter/map to perform on all cart items
-    try {
-    quantity-=1
-      const response = await fetch(`http://localhost:5000/supplies/update/${addedSupply._id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({quantity}),
-      });
-      const result = await response.json();
-      console.log("Success:", result);
-    } catch (error) {
-      console.error("Error:", error);
+    async function Order(){
+        confirm("Send order?")
+        try{
+            const response = await fetch('http://localhost:5000/orders', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({cartItems}),
+            });
+            const result = await response.json();
+            console.log("Success:", result);
+            alert("Your order is complete!")
+            setCartItems([])
+            }
+        catch (error) {
+        console.error("Error:", error);
+            }
     }
-  }
+    
   
   return (
     <>  
@@ -37,10 +40,11 @@ export default function Cart() {
             price={item.price}
             region={item.region}
             quantity={item.quantity}
+            cartItems={cartItems}
             />
         ))}
         </div>
-        <Button>Order Now  </Button>
+        <Button onClick={()=>{Order()}}>Order Now  </Button>
     </>
     
   );
