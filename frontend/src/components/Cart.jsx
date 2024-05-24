@@ -36,7 +36,7 @@ export default function Cart(props) {
   
   return (
     <>  
-        <h1 className='cartNotice'>Please complete your order</h1>
+        {ordered? <h1 className='cartNotice'>Thank You!!</h1>:<h1 className='cartNotice'>Please complete your order</h1>}
         <div className="cardContainer">
         {cartItems.map(item => (
             <CartCard
@@ -73,7 +73,7 @@ export default function Cart(props) {
             
         }
         </div>
-        <div>
+        <div className='orderInfo'>
             <h5>Total Price: {totalCost} Poke Dollars</h5>
             <form>
                 <label> card number
@@ -85,7 +85,7 @@ export default function Cart(props) {
 
             </form>
         </div>
-        <Button onClick={()=>{Order()}}>Order Now  </Button>
+        <Button className='orderButton' onClick={()=>{Order()}}>Order Now  </Button>
     </>
     
   );

@@ -1,6 +1,7 @@
 .cardContainer{
   display:flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .me-auto{
   display: flex;
@@ -42,4 +43,7 @@
 }
 .list-group-item{
   background-color: rgb(245, 233, 217);
+}
+.orderInfo{
+  padding-left: 10px;
 }
