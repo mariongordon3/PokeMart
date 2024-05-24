@@ -7,7 +7,7 @@ export default function Home({ supplies }) {
 
   return (
     <>
-        <h1>Welcome to the PokeMart!</h1>
+        <h1 className='welcome'>Welcome to the PokeMart!</h1>
         <div className="cardContainer">
         {supplies.map(item => (
             <Pokeitem

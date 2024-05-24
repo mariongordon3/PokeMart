@@ -55,8 +55,8 @@ function Pokenavbar(props) {
           PokeMart
         </Navbar.Brand>
         <div className="me-auto">
-            <Link to='/'>Home</Link>
-            <Link to='/cart'>Cart</Link> 
+            <Link to='/' style={{ textDecoration: 'none' }}>Home</Link>
+            <Link to='/cart' style={{ textDecoration: 'none' }}>Cart</Link> 
         </div>
         <Form inline="true" onSubmit={handleSubmit}>
           <Row>

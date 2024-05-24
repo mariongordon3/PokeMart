@@ -25,6 +25,7 @@ export default function Cart(props) {
             console.log("Success:", result);
             alert("Your order is complete!")
             setCartItems([])
+            setTotalCost(0)
             setOrdered(true)
             }
         catch (error) {
@@ -35,7 +36,7 @@ export default function Cart(props) {
   
   return (
     <>  
-        <h1>Please complete your order</h1>
+        <h1 className='cartNotice'>Please complete your order</h1>
         <div className="cardContainer">
         {cartItems.map(item => (
             <CartCard
@@ -53,16 +54,16 @@ export default function Cart(props) {
         ))}
         {
             ordered?
-            <div key={supplies[randomNumber]._id}>
+            <div key={supplies[8]._id}>
                 <h2>Future Recommended Purchase</h2>
                 <CartCard
-                key={supplies[randomNumber]._id}
-                itemName={supplies[randomNumber].itemName}
-                popularity={supplies[randomNumber].popularity}
-                durability={supplies[randomNumber].durability}
-                price={supplies[randomNumber].price}
-                region={supplies[randomNumber].region}
-                quantity={supplies[randomNumber].quantity}
+                key={supplies[8]._id}
+                itemName={supplies[8].itemName}
+                popularity={supplies[8].popularity}
+                durability={supplies[8].durability}
+                price={supplies[8].price}
+                region={supplies[8].region}
+                quantity={supplies[8].quantity}
                 cartItems={cartItems}
                 totalCost={totalCost}
                 setTotalCost={setTotalCost}
@@ -73,7 +74,7 @@ export default function Cart(props) {
         }
         </div>
         <div>
-            <h5>Total Price: {totalCost}</h5>
+            <h5>Total Price: {totalCost} Poke Dollars</h5>
             <form>
                 <label> card number
                    <input type="text" /> 
