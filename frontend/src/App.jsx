@@ -41,6 +41,7 @@ function App() {
     fetchData();
 }, []);
 
+
   return (
     <>
   <CartProvider>
